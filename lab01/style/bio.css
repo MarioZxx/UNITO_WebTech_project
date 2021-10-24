@@ -1,0 +1,75 @@
+html{
+    width: 1024px;
+    margin: auto;
+}
+body{
+    background-image: url("../images/backImage.jpg");
+    display: block;
+    background-size: cover;
+    background-attachment:fixed;
+    min-height: 100%;
+    position: relative;
+    margin: 0;
+    color: #404040;
+    font-size: 11pt;
+    font-family: sans-serif;
+}
+h1{
+    color: #A4A400;
+    font-size: 22pt;
+    font-weight: bold;
+    font-family:  sans-serif;
+    text-decoration: underline;
+    background-color: #F0F0F0;
+    background-size: cover;
+    letter-spacing: 0.25em;
+    padding: 0;
+    width: fit-content;
+    margin: auto;
+}
+h2{
+    text-align: left;
+    font-size: 18pt;
+    text-decoration: underline;
+    color: #A4A400;
+    background-color: #F0F0F0;
+    letter-spacing: 0.25em;
+    width: fit-content;
+}
+.personalData>h2{font-family: Helvetica, sans-serif;}
+.itSkills>h2{font-family: Arial, sans-serif}
+.workExperience>h2{font-family: "Lucida Sans Unicode", sans-serif;}
+.personalInterest>h2{font-family: Helvetica, sans-serif;}
+.links>h2{font-family: Arial, sans-serif;}
+
+.avatarDiv{
+    float: right;
+    width: 50%;
+    height: 240px;
+}
+#avatar{
+    float: right;
+    width: 240px;
+    height: 240px;
+}
+.list{
+    float: left;
+    width: 50%;
+    height: 240px;
+}
+
+ul{
+    list-style-image: url("../images/favicon.ico");
+}
+
+.foot{
+    padding-bottom: 65px;
+}
+footer{
+    text-align: left;
+    position: absolute;
+    bottom:0;
+    height: 65px;
+    width: 100%;
+    background-color: DarkSalmon;
+}
