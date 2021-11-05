@@ -56,6 +56,11 @@ fieldset .column {
 	width: 11em;
 }
 
+fieldset .row {
+  display: block;
+  margin-bottom: 10px;
+}
+
 h1 {
 	margin-top: 0em;
 }

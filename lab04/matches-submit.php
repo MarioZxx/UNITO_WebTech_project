@@ -1,6 +1,6 @@
 <?php //TODO personality type controll
 include "top.html"; 
-$name = $_GET["name"] ?? "user";
+$name = $_GET["name"] ?? "name";
 ?>
 
 <h1>Matches for <?= $name ?> </h1>
@@ -8,7 +8,7 @@ $name = $_GET["name"] ?? "user";
 <?php 
 $singles = file("./singles.txt", FILE_IGNORE_NEW_LINES);
 
-$requirements = array(0,1,2,"default",4,5);
+$requirements = array(0,1,2,"default",4,5,6);
 foreach($singles as $line) {  //find the name in singles.txt
   $position = strpos($line, $name);
   if( $position !== false ){
@@ -17,8 +17,11 @@ foreach($singles as $line) {  //find the name in singles.txt
   }
 }
 
-foreach($singles as $line) {  //search all ideal users
+foreach($singles as $line) {  //search all ideal partners
   $line = explode(",", $line);
+
+  if($requirements[0] == $line[0])  //name
+    continue;
 
   if(isset($requirements[7])){  //gender
     if($requirements[7] != "both" && $requirements[7] != $line[1]){
@@ -29,7 +32,7 @@ foreach($singles as $line) {  //search all ideal users
       continue;
   }
 
-  if($requirements[5] > $line[2] && $requirements[6] < $line[2])  //age
+  if($requirements[5] > $line[2] || $requirements[6] < $line[2])  //age
     continue;
 
   for($i = 0; $i < 4; $i++){
@@ -46,7 +49,7 @@ foreach($singles as $line) {  //search all ideal users
 <div class="match">
   <img src="https://courses.cs.washington.edu/courses/cse190m/12sp/homework/4/user.jpg" alt="user">
   <p><?=$line[0]?></p>
-  <ul id="links">
+  <ul>
 
     <li><strong>gender:</strong>  <?=$line[1]?></li>
     <li><strong>age:</strong>  <?=$line[2]?></li>
