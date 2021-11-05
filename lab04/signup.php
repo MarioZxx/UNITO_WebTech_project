@@ -36,7 +36,7 @@
       <br><br>
 
       <label class="left"><strong>Seeking gender:</strong></label>
-      <select name="system">
+      <select name="seekGender">
         <option value="M">male</option>
         <option value="F">female</option>
         <option value="both" selected="selected">both</option>

@@ -1,6 +1,6 @@
-<?php 
+<?php //TODO personality type controll
 include "top.html"; 
-$name = $_GET["name"] ?? "error";
+$name = $_GET["name"] ?? "user";
 ?>
 
 <h1>Matches for <?= $name ?> </h1>
@@ -8,7 +8,7 @@ $name = $_GET["name"] ?? "error";
 <?php 
 $singles = file("./singles.txt", FILE_IGNORE_NEW_LINES);
 
-$requirements = array(1,2,3,4,5,6,7);
+$requirements = array(0,1,2,"default",4,5);
 foreach($singles as $line) {  //find the name in singles.txt
   $position = strpos($line, $name);
   if( $position !== false ){
@@ -20,14 +20,26 @@ foreach($singles as $line) {  //find the name in singles.txt
 foreach($singles as $line) {  //search all ideal users
   $line = explode(",", $line);
 
+  if(isset($requirements[7])){  //gender
+    if($requirements[7] != "both" && $requirements[7] != $line[1]){
+      continue;
+    }
+  } else {
+    if($requirements[1] === $line[1])
+      continue;
+  }
 
-
-  if($line[2] < $requirements[5] || $line[2] > $requirements[6])  //age
+  if($requirements[5] > $line[2] && $requirements[6] < $line[2])  //age
     continue;
-  
-  //echo(sizeof($line[3]));
 
-  if($line[4] != $requirements[4])  //OS
+  for($i = 0; $i < 4; $i++){
+    if($requirements[3][$i] == $line[3][$i]){  //Type
+      break;
+    }
+  }
+  if($i == 4) continue;
+
+  if($requirements[4] != $line[4])  //OS
     continue;
 ?>
 
