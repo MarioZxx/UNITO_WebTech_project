@@ -85,11 +85,15 @@ legend {
 
 .match p {
 	background-color: #E0E0FF;
-	clear: left;
 }
 
 .match ul {
 	padding-left: 160px;
+}
+
+.match strong {
+  float: left;
+	width: 11em;
 }
 
 ul {
