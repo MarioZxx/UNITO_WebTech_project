@@ -1,0 +1,58 @@
+#command {
+  margin-top: 20px;
+}
+
+.offer {
+  margin-top: 20px;
+  width: 80%;  
+  height: 160px;
+  border: 1px #45728f;
+  border-style: solid;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.offerImg {
+  width: 30%;
+  height: 100%;
+  border-right: 1px solid #45728f;
+  float: left;
+}
+
+.offerImg > img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.offerInfo {
+  padding: 10px;
+  width: 65%;
+  text-align: left;
+  float: right;
+  object-fit: contain;
+}
+.offerInfo > span {
+  margin-top: 10px;
+  display: inline-block;
+  width: calc(100%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.offerInfo .of_title {
+  margin-top: 0px;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.of_time {
+  font-size: 15px;
+  color: grey;
+}
+
+.of_price {
+  color: red;
+}
+

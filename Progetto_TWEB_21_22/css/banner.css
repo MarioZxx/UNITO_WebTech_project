@@ -1,0 +1,56 @@
+
+/* common banner */
+#banner {
+  width: 100%;
+  height: 100px;
+  background-color: #66CCFF;
+  font-style: italic;
+  font-size: 50px;
+}
+
+
+#menu_container {
+  margin: 10px;
+  vertical-align: top;
+  float: right;  
+  z-index: 0;
+}
+
+.menu {
+  height: 40px;
+  min-width: 180px;
+  font-size: 25px;
+  text-align: left;
+  vertical-align: middle;
+  border: 1px #45728f;
+  border-style: solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu > span{
+  padding: 5px;
+  display: inline-block;
+}
+
+#user {  
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+#user > img {
+  float: right;
+}
+
+#options {
+  list-style-type: none;
+  padding: 0;
+  background-color: white;
+  position: relative;
+  display: none;
+}
+
+.menu:hover #options {
+  display: block;
+}

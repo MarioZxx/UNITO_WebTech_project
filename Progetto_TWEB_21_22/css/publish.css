@@ -1,0 +1,61 @@
+#inputCont {
+  width: 80%;
+  min-height: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+#inputCont > *{
+  display: inline-block;
+}
+
+#firstRow {
+  width: 100%;
+  clear: both;
+  padding: 5px;
+}
+
+#firstRow input, #category {
+  height: 50px;
+  width: 90%;
+  padding: 3px;
+  font-size: 25px;
+  border: 1px #253A47;
+  border-style: solid;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#titleDiv {
+  width: 50%;
+  float: left;
+}
+#priceDiv {
+  width: 15%;
+  float: right;
+}
+#categoryDiv {
+  width: 35%;
+  float: right;
+}
+
+#secondRow, #thirdRow {
+  width: 100%;
+  clear: both;
+  padding: 5px;
+}
+
+#desc, #image {
+  height: 50px;
+  width: 95%;
+  padding: 3px;
+  font-size: 25px;
+  border: 1px #253A47;
+  border-style: solid;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#desc{
+  height: 100%;
+}
