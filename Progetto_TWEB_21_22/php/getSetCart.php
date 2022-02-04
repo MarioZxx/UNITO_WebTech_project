@@ -4,7 +4,7 @@ if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "POST") 
   header("HTTP/1.1 400 Invalid Request");
   die("ERROR 400: Invalid request - This service accepts only POST requests.");
 }
-error_log("testing \n", 3 ,"../log/errors.log");
+
 header("Content-type: application/json");
 print "{\n";
 
@@ -42,7 +42,6 @@ function printCartToJSON() {
 }
 
 function setCart() {
-  error_log("something\n", 3 ,"../log/errors.log");
     $offerId = $_POST["id"];
        
     $db = dbconnect();

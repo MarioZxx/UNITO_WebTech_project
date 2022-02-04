@@ -24,15 +24,16 @@ print "\n}\n";
 
 function printShowOfferToJSON() {
   $offerId = $_POST["id"];
-  $db = dbconnect();    
+  $db = dbconnect();
   try{
     $rows = $db->query("SELECT title, time, description, price, image, users.email
                     FROM offers JOIN users ON offers.user_id = users.id
                     WHERE offers.id = '$offerId'");
 
     $email = $_SESSION["name"];
-    $user_id =  $db -> query("SELECT id FROM users WHERE email = '$email'");
+    $user_id =  $db -> query("SELECT id, role_id FROM users WHERE email = '$email'");
     $user_id = $user_id->fetch(PDO::FETCH_ASSOC);
+    $role_id = $user_id['role_id'];
     $user_id = $user_id['id'];
 
     $cartCheck = $db->query("SELECT id FROM carts
@@ -40,6 +41,11 @@ function printShowOfferToJSON() {
   } catch(PDOException $ex) {
     die('Database error: ' . $ex->getMessage());
   }
+
+  if ($role_id == 0) {
+    print "  \"admin\": true, \n";
+  }
+
   if ($cartCheck == null or $cartCheck->rowCount() == 0) {
     print "  \"cartCheck\": false, \n";
   } else {

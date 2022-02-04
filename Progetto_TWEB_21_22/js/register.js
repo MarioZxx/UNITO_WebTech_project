@@ -1,32 +1,42 @@
 $(function() {
   $("#msg").hide();
+
+  // print flash message if it has been set
+  $.get("../php/getMsg.php", printMsg, "json");
   
-  $("#loginBtn").on("click", function(){
-      if(!validation()) {
+  $("#regisBtn").on("click", function(){
+      if(!usernameValidation()) {
         $("#msg").show();
         $("#msg").text("Please, enter a valid username");
         return;
       };
-      if($("#pwd").val() == "") {
+      if(!pwdValidation()) {
         $("#msg").show();
-        $("#msg").text("The password cannot be empty");
+        $("#msg").text("The password cannot be empty or different");
         return;
       };
       $.ajax({
           type: 'POST',
-          url: "../php/loginCheck.php",
+          url: "../php/addUser.php",
           data: {username: $("#username").val(), pwd: $("#pwd").val()},
-          success: goToHome,
-          error: errorHandler,
+          success: function(json){
+            $("#msg").show();
+            $("#msg").text(json.msg);
+            setTimeout(function(){ window.location = "login.php"; }, 5000);
+          },
           dataType: "json"
         })
   });
 
 });
 
-function validation() {
+function usernameValidation() {
     var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{1,4})+$/;
     return regex.test($("#username").val());
+}
+
+function pwdValidation() {
+  return $("#pwd").val() != "" && $("#pwd").val()==$("#rePwd").val();
 }
 
 function errorHandler(xhr, textStatus, error){
@@ -34,7 +44,6 @@ function errorHandler(xhr, textStatus, error){
     console.log(textStatus);
     console.log(error);
 }
-
 
 function printMsg(json){
   // if isSet is true, then the message is set up and displayed
@@ -44,14 +53,4 @@ function printMsg(json){
   } // hide message container if there is no message to show
   else
        $("#msg").hide();
-}
-
-function goToHome(json){
-  // go to index if it's logged
-  if(json.isLogged){
-      $(window.location).attr('href', 'home.php');
-  }
-  else {
-      $(window.location).attr('href', 'login.php');
-  }
 }

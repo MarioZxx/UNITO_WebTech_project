@@ -2,7 +2,7 @@
 
 <?php include("top.html")?>
 
-       <script src="../js/login.js" type="text/javascript"></script>
+       <script src="../js/register.js" type="text/javascript"></script>
   </head>
   <body>
     <div id="frame">
@@ -19,10 +19,10 @@
             <dd><input type="text" id="username" placeholder="Enter Username" required></dd>
           <dt>Password</dt> 
             <dd><input type="password" id="pwd" placeholder="Enter Password" required></dd>
+          <dt>Repeat password</dt> 
+            <dd><input type="password" id="rePwd" placeholder="Repeat Password" required></dd>
           <dt></dt> 
-            <dd><input type="submit" value="Login" class="submitBtn" id="loginBtn"></dd>
-          <dt></dt> 
-            <a href="register.php"><dd><input type="submit" value="Register" class="submitBtn" id="regisBtn"></dd></a>
+            <dd><input type="submit" value="Register" class="submitBtn" id="regisBtn"></dd>
         </dl>
 
 

@@ -73,7 +73,9 @@ function showOfferWrapper() {
 }
 
 function showOffer(json) {
-  if(json.cartCheck) $("#cartOpBtn").val("Delete from the cart"); 
+  //if the current user is admin, deleteBtn will be always shown
+  if(json.admin) $("#deleteBtn").show();
+  if(json.cartCheck) $("#cartOpBtn").val("Delete from the cart");
 
   json = json.offers[0];
   var offerId = $(".offer").attr("id");

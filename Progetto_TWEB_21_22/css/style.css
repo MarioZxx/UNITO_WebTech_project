@@ -23,7 +23,7 @@ img {
 }
 
 #msg {
-  width: 100%;
+  width: 90%;
   color: red;
   border: 1px;
   border-style: dashed;
@@ -31,6 +31,7 @@ img {
   font-weight: bold; 
   font-size: 2em;
   background-color: wheat;
+  display: inline-block;
 }
 
 #frame {

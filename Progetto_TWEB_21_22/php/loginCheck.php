@@ -19,7 +19,7 @@
             }
             $_SESSION["name"] = $username;
         } else {
-            $_SESSION["msg"] = "invalid username or password";
+            $_SESSION["msg"] = "Username or password is incorrect";
         }
     }
 
