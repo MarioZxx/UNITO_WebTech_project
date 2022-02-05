@@ -13,16 +13,15 @@ $(function() {
 
   $("#bannerTxt").text("Publish new offer!");
 
-  $("#logout").on("click",function(){
-      $.get({
-          url: "../php/logout.php",
-          success: function() {
-              $(window.location).attr('href', 'login.php');
-          }
-      })
-  });
+  utils.logout();
 
   $("#publishBtn").on("click",function(){
+    if( !(/^\d*$/.test($("#price").val())) ) {
+      $("#msg").show();
+      $("#msg").text("The price should be numbers");
+      $("#price").css("border-color","red");
+      return;
+    };
     $.ajax({
       type: 'POST',
       url: "../php/publishOffer.php",

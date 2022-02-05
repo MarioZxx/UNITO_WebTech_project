@@ -13,19 +13,8 @@ $(function() {
   
   $("#bannerTxt").text("My cart");
 
-  // dismiss open session and redirect to login.php when logout button is pressed
-  $("#logout").on("click", function(){
-      $.get({
-          url: "../php/logout.php",
-          success: function() {
-              $(window.location).attr('href', 'login.php');
-          }
-      })
-  });
-
-  $(document).on("click", ".offer", function() {
-    $(window.location).attr('href', 'offer.php?id=' + $(this).attr('id'));     
-});
+  utils.logout()
+  utils.commonOffer();
 
 });
 

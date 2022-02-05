@@ -14,21 +14,10 @@ $(function() {
       error: utils.goToLogin,
   });
 
-  // dismiss open session and redirect to login.php when logout button is pressed
-  $("#logout").on("click",function() {
-      $.get({
-          url: "../php/logout.php",
-          success: function() {
-              $(window.location).attr('href', 'login.php');
-          }
-      })
-  });
-
   $("#searchBtn").on("click", updateWrapper);
 
-  $(document).on("click", ".offer", function() {
-          $(window.location).attr('href', 'offer.php?id=' + $(this).attr('id'));     
-  });
+  utils.logout()
+  utils.commonOffer();
   
 });
 
@@ -67,7 +56,7 @@ function updateOffers(json) {
           html = html.replace("the_price", item.price);
           html = html.replace("the_desc", item.description);
           aTag.append(html);
-          $("#offers").append(html);
+          $("#offers").append(aTag);
         },
         "html"
     );

@@ -20,10 +20,10 @@
     </div>
     <div class="offerInfo">
       <span class="of_title" id="of_title">the_title</span>
-      <span class="of_price" id="of_seller">the_seller</span><br>
-      <span class="of_time" id="of_date">the_date</span><br>
-      <span class="of_price" id="of_price">the_price €</span><br>
-      <span class="of_desc" id="of_desc">the_desc</span><br>
+      <span class="of_price" id="of_seller">the_seller</span>
+      <span class="of_time" id="of_date">the_date</span>
+      <span class="of_price" id="of_price">the_price €</span>
+      <span class="of_desc" id="of_desc">the_desc</span>
     </div>
   </div>
 </div>

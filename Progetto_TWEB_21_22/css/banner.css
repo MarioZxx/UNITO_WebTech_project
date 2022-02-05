@@ -8,12 +8,15 @@
   font-size: 50px;
 }
 
+#banner * {
+  z-index: 16;
+}
+
 
 #menu_container {
   margin: 10px;
   vertical-align: top;
-  float: right;  
-  z-index: 0;
+  float: right;
 }
 
 .menu {

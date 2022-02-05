@@ -11,12 +11,16 @@
   border-radius: 5px;
   display: inline-block;
   background-color: #66ccff20;
+  position: relative;
+}
+
+.offer * {
+  z-index: 0;
 }
 
 .offerImg {
   width: 30%;
   height: 100%;
-  border-right: 1px solid #45728f;
   float: left;
 }
 
@@ -28,8 +32,10 @@
 
 .offerInfo {
   padding: 10px;
-  width: 65%;
+  height: calc(100% - 20px);
+  width: calc(70% - 21px);;
   text-align: left;
+  border-left: 1px solid #45728f;
   float: right;
   object-fit: contain;
 }

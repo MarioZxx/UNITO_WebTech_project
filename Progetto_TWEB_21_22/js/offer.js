@@ -15,14 +15,7 @@ $(function() {
       error: utils.goToLogin,
   });
 
-  $("#logout").on("click",function(){
-      $.get({
-          url: "../php/logout.php",
-          success: function() {
-              $(window.location).attr('href', 'login.php');
-          }
-      })
-  });
+  utils.logout();
 
   $("#deleteBtn").on("click",function(){
     var check = confirm("Are you sure you want to delete?");
