@@ -21,21 +21,4 @@
         return $db;
       }
     
-    // check if credentials are correct
-    function pwdVerify($username, $pwd) {
-        try {
-            $db = dbconnect();
-            $rows = $db->query("SELECT password FROM users WHERE email = '$username'");
-        } catch (PDOException $ex) {
-            die('Database error: ' . $ex->getMessage());
-        }
-        if ($rows) { // controlla la corrispondenza utente / password
-            foreach ($rows as $row) {
-                $password = $row["password"];
-                return $pwd === $password;
-            }
-        } else {
-        return false; // user not found
-        }
-    }
 ?>

@@ -7,8 +7,6 @@
     
     include("utils.php");
 
-    
-
     // check the credentials
     if (isset($_POST["username"]) && isset($_POST["pwd"])) {
         $username = $_POST["username"];
@@ -33,5 +31,24 @@
         print " \"isLogged\": false \n";
     }
     print "\n}";
+
+    // check if credentials are correct
+    function pwdVerify($username, $pwd) {
+      try {
+          $db = dbconnect();
+          $username = $db->quote($username);
+          $rows = $db->query("SELECT password FROM users WHERE email = $username");
+      } catch (PDOException $ex) {
+          die('Database error: ' . $ex->getMessage());
+      }
+      if ($rows) { // controlla la corrispondenza utente / password
+          foreach ($rows as $row) {
+              $password = $row["password"];
+              return md5($pwd) === $password;
+          }
+      } else {
+      return false; // user not found
+      }
+  }
     
 ?>

@@ -9,6 +9,10 @@ $(function() {
       url: "../php/loginCheck.php", 
       datatype: "json",
       success: function(json) {
+        if(json.offerNA){
+          $(window.location).attr('href', 'home.php');
+          return;
+        }
         utils.completePage($("#username"), json);
         showOfferWrapper();
       },
@@ -60,7 +64,9 @@ function showOfferWrapper() {
     url: "../php/getOffers.php",
     data: {id: $(".offer").attr("id")},
     success: showOffer,
-    error: utils.errorHandler,
+    error: function(){
+      $(window.location).attr('href', 'home.php');
+    },
     dataType: "json"
   }) 
 }
@@ -85,8 +91,8 @@ function showOffer(json) {
   $("#of_date").text(json.time);
   $("#of_price").text(json.price + " €");
   $("#of_desc").text(json.description);
-  $(".offerImg").css({"float":"none","width":"auto","border":"0"});
-  $(".offerInfo").css({"float":"none","width":"auto"});
+  $(".offerImg").css({"float":"none","width":"auto"});
+  $(".offerInfo").css({"float":"none","width":"auto","border-left":"0","border-top":"1px solid #45728f"});
   $(".offerInfo > span").css({"white-space":"normal", "overflow":"auto", "text-overflow":"clip"});
   $(".offer").css({"overflow":"auto","height":"auto"});
 }

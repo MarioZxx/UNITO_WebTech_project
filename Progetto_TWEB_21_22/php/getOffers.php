@@ -1,4 +1,5 @@
 <?php 
+//get single offer, my offer, search offer
 
 if (!isset($_SERVER["REQUEST_METHOD"]) || $_SERVER["REQUEST_METHOD"] != "POST") {
   header("HTTP/1.1 400 Invalid Request");
@@ -23,21 +24,23 @@ print "\n}\n";
 
 
 function printShowOfferToJSON() {
-  $offerId = $_POST["id"];
-  $db = dbconnect();
   try{
+    $db = dbconnect();
+    $offerId = $db->quote($_POST["id"]);
     $rows = $db->query("SELECT title, time, description, price, image, users.email
                     FROM offers JOIN users ON offers.user_id = users.id
-                    WHERE offers.id = '$offerId'");
+                    WHERE offers.id = $offerId");
+    if ($rows == null or $rows->rowCount() == 0) {print "  \"offerNA\": true, \n";}
+    else{
+      $email = $db->quote($_SESSION["name"]);
+      $user_id =  $db -> query("SELECT id, role_id FROM users WHERE email = $email");
+      $user_id = $user_id->fetch(PDO::FETCH_ASSOC);
+      $role_id = $user_id['role_id'];
+      $user_id = $db->quote($user_id['id']);
 
-    $email = $_SESSION["name"];
-    $user_id =  $db -> query("SELECT id, role_id FROM users WHERE email = '$email'");
-    $user_id = $user_id->fetch(PDO::FETCH_ASSOC);
-    $role_id = $user_id['role_id'];
-    $user_id = $user_id['id'];
-
-    $cartCheck = $db->query("SELECT id FROM carts
-                        WHERE offer_id = '$offerId' AND user_id = '$user_id'");
+      $cartCheck = $db->query("SELECT id FROM carts
+                        WHERE offer_id = $offerId AND user_id = $user_id");
+    }
   } catch(PDOException $ex) {
     die('Database error: ' . $ex->getMessage());
   }
@@ -59,15 +62,16 @@ function printShowOfferToJSON() {
 
 
 function printOffersToJSON() {
-    $search = $_POST["search"];
-    $category = $_POST["category"];
-    if($category == "all") $category = "";
-   
-    $db = dbconnect();    
-    try{
+  $search = $_POST["search"];
+  $category = $_POST["category"];
+  try{
+      $db = dbconnect();    
+      $search = $db->quote("%".$search."%");
+      if($category == "all") $category = $db->quote("%%");
+      else $category = $db->quote("%".$category."%");
       $rows = $db->query("SELECT id, title, time, description, price, image
                       FROM offers
-                      WHERE category LIKE '%$category%' AND ( title LIKE '%$search%' OR description LIKE '%$search%' )
+                      WHERE category LIKE $category AND ( title LIKE $search OR description LIKE $search )
                       ORDER BY id;");
     } catch(PDOException $ex) {
       die('Database error: ' . $ex->getMessage());
@@ -85,12 +89,12 @@ function printOffersToJSON() {
 
 
 function printMyOffersToJSON() {
-  $email = $_SESSION["name"];
-  $db = dbconnect();    
   try{
+    $db = dbconnect();    
+    $email = $db->quote($_SESSION["name"]);
     $rows = $db->query("SELECT offers.id, title, time, description, price, image
                     FROM offers JOIN users ON offers.user_id = users.id
-                    WHERE users.email = '$email'
+                    WHERE users.email = $email
                     ORDER BY offers.id;");
   } catch(PDOException $ex) {
     die('Database error: ' . $ex->getMessage());

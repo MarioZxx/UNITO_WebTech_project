@@ -1,6 +1,8 @@
 $(function() {
   $("#msg").hide();
   
+  $.get("../php/getMsg.php", printMsg, "json");
+
   $("#loginBtn").on("click", function(){
       if(!validation()) {
         $("#msg").show();

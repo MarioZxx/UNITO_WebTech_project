@@ -38,6 +38,40 @@ export function logout() {
   });
 }
 
+export function updateOffers(json){
+  console.log(json);
+  //connect to db and get offers by search constraints
+  $("#offers").html("");
+
+  if(json.errMsg) {
+    var errMsg = $("<p></p>");
+    errMsg.attr("id","msg");
+    errMsg.text(json.errMsg);
+    $("#offers").append(errMsg);
+    return;
+  }
+
+  json.offers.forEach(function(item){
+    $.get( "../html/offerSkeleton.html", 
+        function(html){
+          var aTag = $("<a></a>");
+          aTag.attr("href", "offer.php?id="+ item.id);
+          aTag.attr("id", "oid"+ item.id);
+          html = html.replace("the_id", item.id);
+          html = html.replace("the_date", item.time);
+          html = html.replace("the_price", item.price);
+          aTag.append(html);
+          $("#offers").append(aTag);
+          $("#offers #oid"+item.id+" .of_title").text(item.title);
+          $("#offers #oid"+item.id+" .of_desc").text(item.description);
+          $("#offers #oid"+item.id+" img").attr("src", item.image);
+
+        },
+        "html"
+    );
+  });
+}
+
 export function commonOffer() {
   $(document).on("click", ".offer", function() {
     $(window.location).attr('href', 'offer.php?id=' + $(this).attr('id'));     

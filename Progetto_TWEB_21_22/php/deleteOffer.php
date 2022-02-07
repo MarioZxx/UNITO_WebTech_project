@@ -13,11 +13,11 @@ if (isLogged()){
 }
     
 function deleteOffer() {
-  $offerId = $_POST["id"];
-
-  $db = dbconnect();    
+  
   try{
-    $db->query("DELETE FROM `offers` WHERE id = '$offerId'");
+    $db = dbconnect();    
+    $offerId = $db->quote($_POST["id"]);
+    $db->query("DELETE FROM `offers` WHERE id = $offerId");
   } catch(PDOException $ex) {
     die('Database error: ' . $ex->getMessage());
   }

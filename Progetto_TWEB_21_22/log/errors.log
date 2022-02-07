@@ -1,1 +1,2 @@
 error_log("Testing\n", 3 ,"../log/errors.log");
+'%all%'

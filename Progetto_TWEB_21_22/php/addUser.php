@@ -9,21 +9,18 @@ header("Content-type: application/json");
 print "{\n";
 
 include("utils.php");
-// check if i'm logged
-if (isLogged()){
-    addUser();
-} 
+addUser();
 print "\n}\n";
 
 
-function addUser() {
-    $username = $_POST["username"];
-    $pwd = $_POST["pwd"];
-       
+function addUser() {       
     try{
       $db = dbconnect();
+      $username = $db->quote($_POST["username"]);
+      $pwd = md5($_POST["pwd"]);
+      $pwd = $db->quote($pwd);
       $db->query("INSERT INTO `users`(`email`, `password`, `role_id`) 
-                  VALUES ('$username','$pwd','1')");
+                  VALUES ($username, $pwd, '1')");
       $msg = "Success! Back to login in 5 secs";
       print "  \"msg\": \"".$msg."\"";
     } catch(PDOException $ex) {      
