@@ -10,37 +10,23 @@ export function printText(text){
   console.log(text);
 }
 
+//update the username if is logger, in otherwise go to login
 export function completePage(temp, json){
-  // if session has been set and username is found, then we WELCOME the user and 
-  // we add logout button to each page
   if(json.isLogged){
     temp.text(json.name);
   } else {
-      // if logged is false, then the session is not active and the user needs to log in
       $(window.location).attr('href', 'login.php');
   }
-}   // end printName
+}
 
+// if something goes wrong, go to login page
 export function goToLogin() {
-  // if something goes wrong, go to login page
   $(window.location).attr('href', 'login.php');
 }
 
-export function logout() {
-  // dismiss open session and redirect to login.php when logout button is pressed
-  $("#logout").on("click", function(){
-    $.get({
-        url: "../php/logout.php",
-        success: function() {
-            $(window.location).attr('href', 'login.php');
-        }
-    })
-  });
-}
 
+//update the list of offer to the div#offers
 export function updateOffers(json){
-  console.log(json);
-  //connect to db and get offers by search constraints
   $("#offers").html("");
 
   if(json.errMsg) {
@@ -72,6 +58,8 @@ export function updateOffers(json){
   });
 }
 
+
+//animation for every image in the offers list
 export function commonOffer() {
   $(document).on("click", ".offer", function() {
     $(window.location).attr('href', 'offer.php?id=' + $(this).attr('id'));     
@@ -86,4 +74,27 @@ export function commonOffer() {
       $(this).stop().animate({ height: "100%", width: "30%", left: "0px", top: "0px", zIndex: "0" }, 400);
     }
   }, ".offerImg");
+}
+
+export function menuHandler() {
+  $("#myOffers").on("click", function(){
+    $(window.location).attr('href', 'myOffers.php');
+  });
+
+  $("#cart").on("click", function(){
+    $(window.location).attr('href', 'cart.php');
+  });
+
+  $("#publish").on("click", function(){
+    $(window.location).attr('href', 'publish.php');
+  });
+
+  $("#logout").on("click", function(){
+    $.get({
+        url: "../php/logout.php",
+        success: function() {
+            $(window.location).attr('href', 'login.php');
+        }
+    })
+  });
 }

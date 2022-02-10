@@ -1,6 +1,6 @@
 <?php include("top.html");?>
 
-        <script type="module" src="../js/offer.js" type="text/javascript"></script>
+        <script type="module" src="../js/offer.js"></script>
     </head>
     <body>
 
@@ -14,9 +14,9 @@
 
 
 <div id="offers">  
-  <div class="offer" id="<?=$_GET["id"]?>">
+  <div class="offer" id="<?=$_GET["id"] ?? 0 ?>">
     <div class="offerImg">
-      <img id="of_img" src="the_img" alt="offer image" onerror="this.onerror=null; this.src='../img/offers/default.png'">
+      <img id="of_img" src="../img/offers/default.png" alt="offer image" onerror="this.onerror=null; this.src='../img/offers/default.png'">
     </div>
     <div class="offerInfo">
       <span class="of_title" id="of_title">the_title</span>

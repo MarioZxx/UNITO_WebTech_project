@@ -19,7 +19,7 @@ $(function() {
       error: utils.goToLogin,
   });
 
-  utils.logout();
+  utils.menuHandler();
 
   $("#deleteBtn").on("click",function(){
     var check = confirm("Are you sure you want to delete?");
@@ -78,7 +78,7 @@ function showOffer(json) {
 
   json = json.offers[0];
   var offerId = $(".offer").attr("id");
-  $("#of_img").attr("src", json.image); //onerror will handler only at start, this is dynamic, won't be updated
+  $("#of_img").attr("src", json.image);
   $("#of_img").attr("onerror", "this.onerror=null; this.src='../img/offers/default.png'");
   $("#of_title").text(json.title);
 

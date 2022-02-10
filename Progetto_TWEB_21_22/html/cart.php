@@ -1,6 +1,6 @@
 <?php include("top.html");?>
 
-        <script type="module" src="../js/cart.js" type="text/javascript"></script>
+        <script type="module" src="../js/cart.js"></script>
     </head>
     <body>
 

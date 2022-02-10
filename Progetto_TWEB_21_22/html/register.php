@@ -2,7 +2,7 @@
 
 <?php include("top.html")?>
 
-       <script src="../js/register.js" type="text/javascript"></script>
+       <script src="../js/register.js"></script>
   </head>
   <body>
     <div id="frame">

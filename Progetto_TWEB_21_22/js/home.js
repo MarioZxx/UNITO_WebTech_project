@@ -16,7 +16,7 @@ $(function() {
 
   $("#searchBtn").on("click", updateWrapper);
 
-  utils.logout()
+  utils.menuHandler();
   utils.commonOffer();
   
 });

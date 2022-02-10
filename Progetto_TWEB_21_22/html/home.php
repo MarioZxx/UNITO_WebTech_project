@@ -1,6 +1,6 @@
 <?php include("top.html");?>
 
-        <script type="module" src="../js/home.js" type="text/javascript"></script>
+        <script type="module" src="../js/home.js"></script>
     </head>
     <body>
 

@@ -24,6 +24,10 @@ $(function() {
         })
   });
 
+  $("#regisBtn").on("click", function(){
+    $(window.location).attr('href', 'register.php');
+});
+
 });
 
 function validation() {

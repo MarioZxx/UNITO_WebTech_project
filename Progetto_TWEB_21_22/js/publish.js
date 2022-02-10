@@ -13,7 +13,7 @@ $(function() {
 
   $("#bannerTxt").text("Publish new offer!");
 
-  utils.logout();
+  utils.menuHandler();
 
   $("#publishBtn").on("click",function(){
     if( !(/^\d*$/.test($("#price").val())) ) {

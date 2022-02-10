@@ -13,7 +13,7 @@ $(function() {
   
   $("#bannerTxt").text("My cart");
 
-  utils.logout()
+  utils.menuHandler();
   utils.commonOffer();
 
 });

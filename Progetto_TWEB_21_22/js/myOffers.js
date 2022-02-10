@@ -13,7 +13,7 @@ $(function() {
 
   $("#bannerTxt").text("My offers");
 
-  utils.logout();
+  utils.menuHandler();
   utils.commonOffer();
 
 

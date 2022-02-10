@@ -2,7 +2,7 @@
 
 <?php include("top.html")?>
 
-       <script src="../js/login.js" type="text/javascript"></script>
+       <script src="../js/login.js"></script>
   </head>
   <body>
     <div id="frame">
@@ -22,7 +22,7 @@
           <dt></dt> 
             <dd><input type="submit" value="Login" class="submitBtn" id="loginBtn"></dd>
           <dt></dt> 
-            <a href="register.php"><dd><input type="submit" value="Register" class="submitBtn" id="regisBtn"></dd></a>
+            <dd><input type="submit" value="Register" class="submitBtn" id="regisBtn"></dd>
         </dl>
 
 

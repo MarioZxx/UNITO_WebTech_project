@@ -1,6 +1,6 @@
 <?php include("top.html");?>
 
-        <script type="module" src="../js/publish.js" type="text/javascript"></script>
+        <script type="module" src="../js/publish.js"></script>
     </head>
     <body>
 
@@ -36,7 +36,7 @@
 
         <div id="secondRow">
           <label>Description</label>
-            <div><textarea type="text" id="desc" placeholder="Enter Description" required></textarea></div>
+            <div><textarea id="desc" placeholder="Enter Description" required></textarea></div>
         </div>
         <div id="thirdRow">
           <label>Image</label>
