@@ -61,8 +61,9 @@ function setCart() {
 
 }
 
-function deleteCart() {
-  
+
+//delete a offer from the user's cart
+function deleteCart() {  
   try{
       $db = dbconnect();
       $email = $db->quote($_SESSION["name"]);

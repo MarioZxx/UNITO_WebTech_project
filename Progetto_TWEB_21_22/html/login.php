@@ -1,8 +1,7 @@
-<!-- login page -->
-
 <?php include("top.html")?>
 
        <script src="../js/login.js"></script>
+       <!-- Xiao Zhao ligin page-->
   </head>
   <body>
     <div id="frame">

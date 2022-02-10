@@ -12,6 +12,7 @@ if (isLogged()){
   deleteOffer();
 }
     
+//delete the offer on the page
 function deleteOffer() {
   
   try{

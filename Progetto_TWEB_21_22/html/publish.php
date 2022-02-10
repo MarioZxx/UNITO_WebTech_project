@@ -1,10 +1,11 @@
 <?php include("top.html");?>
 
         <script type="module" src="../js/publish.js"></script>
+        <!-- Xiao Zhao publish a new offer-->
     </head>
     <body>
 
-      <?php include("banner.html");?>
+    <?php include("banner.html");?>
 
     <div id="inputCont">
         <div id="firstRow">
@@ -50,6 +51,4 @@
 
        
 
-<?php include("bottom.html"); 
-    
-?>
+<?php include("bottom.html");?>

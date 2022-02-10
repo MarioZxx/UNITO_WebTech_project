@@ -1,6 +1,7 @@
 <?php include("top.html");?>
 
         <script type="module" src="../js/cart.js"></script>
+        <!-- Xiao Zhao cart of the current user -->
     </head>
     <body>
 
@@ -9,6 +10,4 @@
 <div id="offers">
 </div>
 
-<?php include("bottom.html"); 
-    
-?>
+<?php include("bottom.html");?>

@@ -12,7 +12,7 @@ include("utils.php");
 addUser();
 print "\n}\n";
 
-
+//add a new user, registration
 function addUser() {       
     try{
       $db = dbconnect();

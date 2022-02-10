@@ -1,9 +1,9 @@
 import * as utils from './utils.js';
 $(function() {
-
+  //homepage
+  
   $("#errMsg").hide();
 
-  // check login status, and if logged, gets the user name
   $.post({
       url: "../php/loginCheck.php", 
       datatype: "json",

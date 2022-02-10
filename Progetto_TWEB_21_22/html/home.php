@@ -1,6 +1,7 @@
 <?php include("top.html");?>
 
         <script type="module" src="../js/home.js"></script>
+        <!-- Xiao Zhao homepage of the website -->
     </head>
     <body>
 
@@ -26,6 +27,4 @@
 </div>
        
 
-<?php include("bottom.html"); 
-    
-?>
+<?php include("bottom.html");?>

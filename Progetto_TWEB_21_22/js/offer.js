@@ -1,5 +1,7 @@
 import * as utils from './utils.js';
 $(function() {
+  //display the selected offer
+
   $("#msg").hide();
   $("#deleteBtn").hide();
   $("#cartOpBtn").show();

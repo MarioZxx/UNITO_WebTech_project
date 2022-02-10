@@ -16,6 +16,7 @@ if (isLogged()){
 print "\n}\n";
 
 
+//publish a new offer
 function publish() {
   
   try{

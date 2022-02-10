@@ -1,6 +1,7 @@
 import * as utils from './utils.js';
 $(function() {
-  // check login status, and if logged, gets the user name
+  // user's cart
+  
   $.post({
       url: "../php/loginCheck.php", 
       datatype: "json",

@@ -1,5 +1,7 @@
 import * as utils from './utils.js';
 $(function() {
+  //publish a new offer
+
   $("#msg").hide();
 
   $.post({

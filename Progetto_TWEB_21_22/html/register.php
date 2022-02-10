@@ -3,6 +3,7 @@
 <?php include("top.html")?>
 
        <script src="../js/register.js"></script>
+       <!-- Xiao Zhao register page-->
   </head>
   <body>
     <div id="frame">

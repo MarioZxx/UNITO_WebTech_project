@@ -1,4 +1,6 @@
 $(function() {
+  //login page
+
   $("#msg").hide();
   
   $.get("../php/getMsg.php", printMsg, "json");

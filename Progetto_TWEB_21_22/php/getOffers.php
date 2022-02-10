@@ -22,7 +22,7 @@ if (isLogged()){
 
 print "\n}\n";
 
-
+//display the offer on the offer page
 function printShowOfferToJSON() {
   try{
     $db = dbconnect();
@@ -61,6 +61,7 @@ function printShowOfferToJSON() {
 }
 
 
+//display the list of offers on the page in the home page
 function printOffersToJSON() {
   $search = $_POST["search"];
   $category = $_POST["category"];
@@ -88,6 +89,7 @@ function printOffersToJSON() {
 }
 
 
+//display the list of offers published by current user on the page in the MyOffer page
 function printMyOffersToJSON() {
   try{
     $db = dbconnect();    

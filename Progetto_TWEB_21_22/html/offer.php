@@ -1,6 +1,7 @@
 <?php include("top.html");?>
 
         <script type="module" src="../js/offer.js"></script>
+        <!-- Xiao Zhao show the offer clicked-->
     </head>
     <body>
 
@@ -10,7 +11,6 @@
           <input type="submit" id="deleteBtn" class="submitBtn" value="Delete this offer">
           <input type="submit" id="cartOpBtn" class="submitBtn" value="Add to cart">
         </div>
-
 
 
 <div id="offers">  
@@ -26,9 +26,6 @@
       <span class="of_desc" id="of_desc">the_desc</span>
     </div>
   </div>
-</div>
-       
+</div>       
 
-<?php include("bottom.html"); 
-    
-?>
+<?php include("bottom.html");?>

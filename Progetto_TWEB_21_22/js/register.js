@@ -1,4 +1,6 @@
 $(function() {
+  //register a new user
+
   $("#msg").hide();
   
   $("#regisBtn").on("click", function(){
